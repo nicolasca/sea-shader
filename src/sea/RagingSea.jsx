@@ -8,6 +8,16 @@ import { useControls } from "leva";
 import { useFrame } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
 
+/*
+Some tests:
+Lava sea
+deep blue: #db9a65
+surface blue: #9d147b
+color multiplier: 6.57
+color offset 0.22
+
+*/
+
 function RagingSea() {
     const seaMesh = useRef();
 
@@ -102,21 +112,21 @@ function RagingSea() {
             },
 
             uDeepBlueColor: {
-                value: '#1d1d58',
+                value: '#db9a65',
                 onChange: (value) => {
                     if (!seaMesh.current) return;
                     seaMesh.current.material.uniforms.uDeepBlueColor.value = new THREE.Color(value);
                 }
             },
             uSurfaceBlueColor: {
-                value: '#81b4de',
+                value: ' #9d147b',
                 onChange: (value) => {
                     if (!seaMesh.current) return;
                     seaMesh.current.material.uniforms.uSurfaceBlueColor.value = new THREE.Color(value);
                 }
             },
             uColorMultiplier: {
-                value: 4.13,
+                value: 6.57,
                 min: 0,
                 max: 10,
                 step: 0.01,
